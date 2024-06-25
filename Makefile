@@ -20,6 +20,9 @@ ARFLAGS		=	rcs
 # Source files for C
 CSOURCES	=	main.c
 
+# Object files derived from the C source files
+COBJECTS    =   $(CSOURCES:.c=.o)
+
 # Compiler and compiler flags
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
@@ -31,17 +34,21 @@ all:	$(NAME)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
+# Pattern rule to compile .c files to .o files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # Rule to create the static library from object files
 $(NAME):	$(SOBJECTS)
 	$(AR) $(ARFLAGS) $(NAME) $(SOBJECTS)
 
 # Rule to build and run the test
-test:	all
-	$(CC) $(CFLAGS) $(CSOURCES) $(NAME) -o $(TEST)
+test:	all $(COBJECTS)
+	$(CC) $(COBJECTS) $(NAME) -o $(TEST)
 
 # Rule to clean up object files
 clean:
-	rm -f $(SOBJECTS)
+	rm -f $(SOBJECTS) $(COBJECTS)
 
 # Rule to clean up everything including the library and test executable
 fclean:	clean
