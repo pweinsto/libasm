@@ -1,26 +1,36 @@
-NAME			=	HelloWorld
+NAME		=	libasm.a
+TEST		=	test
 
-SOURCES			=	HelloWorld.s
-OBJECTS			=	*.o
+SSOURCES	=	HelloWorld.s
+SOBJECTS	=	*.o
 
-ASSEMBLER		=	nasm
-ASSEMBLER_FLAGS	=	-f macho64
+AS			=	nasm
+ASFLAGS		=	-f macho64
 
-LINKER			=	ld
-LINKER_FLAGS	=	-lsystem -e _start
+AR			=	ar
+ARFLAGS		=	rcs
+
+CSOURCES	=	main.c
+
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
+
 
 all:	$(NAME)
 
-$(OBJECTS):
-	$(ASSEMBLER) $(ASSEMBLER_FLAGS) $(SOURCES)
+$(SOBJECTS):
+	$(AS) $(ASFLAGS) $(SSOURCES)
 
-$(NAME):	$(OBJECTS)
-	$(LINKER) $(LINKER_FLAGS) $(OBJECTS) -o $(NAME)
+$(NAME):	$(SOBJECTS)
+	$(AR) $(ARFLAGS) $(NAME) $(SOBJECTS)
+
+test:	all
+	$(CC) $(CFLAGS) $(CSOURCES) $(NAME) -o $(TEST)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(SOBJECTS)
 
 fclean:	clean
-	rm $(NAME)
+	rm -f $(NAME) $(TEST)
 
 re: fclean all
