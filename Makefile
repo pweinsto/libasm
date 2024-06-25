@@ -4,6 +4,7 @@ TEST		=	test
 # Source files for assembly
 SSOURCES	=	HelloWorld.s \
 				ft_write.s \
+				ft_read.s
 
 # Object files derived from the assembly source files
 SOBJECTS	=	$(SSOURCES:.s=.o)

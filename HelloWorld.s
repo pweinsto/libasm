@@ -11,6 +11,4 @@ _HelloWorld:
 	mov	rsi, msg
 	mov rdx, len
 	syscall
-	mov rax, 0x2000001
-	mov rdi, 0
-	syscall
+	ret
