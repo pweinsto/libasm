@@ -8,8 +8,8 @@ section .text
 _start:
 	mov	rax, 0x2000004
 	mov	rdi, 1
-	mov	rsi, [rel msg]
-	mov rdx, 14
+	mov	rsi, msg
+	mov rdx, len
 	syscall
 	mov rax, 0x2000001
 	mov rdi, 0
