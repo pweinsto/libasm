@@ -23,6 +23,9 @@ int	main(void)
 	errno = 0;
 	ft_write(-1, "ft_write test\n", 14);
 	printf("errno: %d\n", errno);
+	errno = 0;
+	ft_read(-1, buf, 32);
+	printf("errno: %d\n", errno);
 
 
 	return (0);
