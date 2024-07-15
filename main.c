@@ -8,6 +8,7 @@ void	HelloWorld(void);
 ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
 ssize_t	ft_read(int, void *, size_t);
 size_t	ft_strlen(const char *s);
+char	*ft_strcpy(char * dst, const char * src);
 
 
 int	main(void)
@@ -32,6 +33,14 @@ int	main(void)
 
 	printf("strlen: %lu\n", strlen("Hello World!"));
 	printf("ft_strlen: %lu\n", ft_strlen("Hello World!"));
+
+	char	*src = "Hello World";
+	char	dst[20];
+
+	printf("strcpy: %s\n", strcpy(dst, src));
+	memset(dst, 1, 20);
+	printf("strcpy: %s\n", ft_strcpy(dst, src));
+
 
 
 	return (0);

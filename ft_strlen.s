@@ -5,7 +5,7 @@ _ft_strlen:
 	mov rax, rdi
 
 loop:
-	cmp byte [rax], 0	; byte to compare one byte at this adress
+	cmp byte [rax], 0	; byte to compare one byte at this address
 	je	return
 	inc	rax
 	jmp loop
