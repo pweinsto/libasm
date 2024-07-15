@@ -2,10 +2,13 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <string.h>
 
 void	HelloWorld(void);
-ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
-ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
+ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
+ssize_t	ft_read(int, void *, size_t);
+size_t	ft_strlen(const char *s);
+
 
 int	main(void)
 {
@@ -26,6 +29,9 @@ int	main(void)
 	errno = 0;
 	ft_read(-1, buf, 32);
 	printf("errno: %d\n", errno);
+
+	printf("strlen: %lu\n", strlen("Hello World!"));
+	printf("ft_strlen: %lu\n", ft_strlen("Hello World!"));
 
 
 	return (0);
