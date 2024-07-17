@@ -9,6 +9,7 @@ ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
 ssize_t	ft_read(int, void *, size_t);
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char * dst, const char * src);
+int		ft_strcmp(const char *s1, const char *s2);
 
 
 int	main(void)
@@ -40,6 +41,9 @@ int	main(void)
 	printf("strcpy: %s\n", strcpy(dst, src));
 	memset(dst, 1, 20);
 	printf("strcpy: %s\n", ft_strcpy(dst, src));
+
+	printf("strcmp: %d\n", strcmp("Hello", "Hellox"));
+	printf("ft_strcmp: %d\n", ft_strcmp("Hello", "Hellox"));
 
 
 
