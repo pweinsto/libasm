@@ -22,7 +22,9 @@ AR			=	ar
 ARFLAGS		=	rcs
 
 # Source files for C
-CSOURCES	=	main.c
+CSOURCES	=	main.c \
+				error.c \
+				read_test.c
 
 # Object files derived from the C source files
 COBJECTS    =   $(CSOURCES:.c=.o)

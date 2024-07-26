@@ -1,21 +1,19 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <string.h>
+void	read_test();
 
-void	HelloWorld(void);
+/*void	HelloWorld(void);
 ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
 ssize_t	ft_read(int, void *, size_t);
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char * dst, const char * src);
 int		ft_strcmp(const char *s1, const char *s2);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(const char *s1);*/
 
 
 int	main(void)
 {
-	char	buf[64];
+	read_test();
+	
+	/*char	buf[64];
 	int fd = open("read.txt", O_RDONLY);
 
 	HelloWorld();
@@ -50,7 +48,10 @@ int	main(void)
 
 	printf("ft_strdup: %s\n", ft_strdup("Hello World"));
 
+	void *ptr = calloc(0, sizeof(char));
+	printf("ptr: %p\n", ptr);
 
+	free(ptr);*/
 
 	return (0);
 }
