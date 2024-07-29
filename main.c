@@ -1,4 +1,9 @@
+#include <errno.h>
+#include <stdio.h>
 void	read_test();
+void 	write_test();
+
+ssize_t	ft_read(int, void *, size_t);
 
 /*void	HelloWorld(void);
 ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
@@ -11,7 +16,8 @@ char	*ft_strdup(const char *s1);*/
 
 int	main(void)
 {
-	read_test();
+	//read_test();
+	write_test();
 	
 	/*char	buf[64];
 	int fd = open("read.txt", O_RDONLY);

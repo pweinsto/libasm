@@ -12,7 +12,7 @@
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
 #define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
+#define GREEN "\033[0;42m"
 
 ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
 ssize_t	ft_read(int, void *, size_t);
