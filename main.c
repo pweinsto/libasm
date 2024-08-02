@@ -2,6 +2,7 @@
 #include <stdio.h>
 void	read_test();
 void 	write_test();
+void	strlen_test();
 
 ssize_t	ft_read(int, void *, size_t);
 
@@ -17,7 +18,8 @@ char	*ft_strdup(const char *s1);*/
 int	main(void)
 {
 	//read_test();
-	write_test();
+	//write_test();
+	strlen_test();
 	
 	/*char	buf[64];
 	int fd = open("read.txt", O_RDONLY);

@@ -25,7 +25,8 @@ ARFLAGS		=	rcs
 CSOURCES	=	main.c \
 				error.c \
 				read_test.c \
-				write_test.c
+				write_test.c \
+				strlen_test.c 
 
 # Object files derived from the C source files
 COBJECTS    =   $(CSOURCES:.c=.o)
