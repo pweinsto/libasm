@@ -14,16 +14,21 @@ loop:
 	inc rsi
 	sub	rax, rdx
 	jz	loop
-	js	.negative
-	mov	rax, 1
+	;js	.negative
+	;mov	rax, 1
 	ret
 
 .testdl:
 	test	dl, dl
 	jz	.return
+	inc	rdi
+	inc rsi
+	sub	rax, rdx
+	jz	loop
+	ret
 
-.negative:
-	mov	rax, -1
+;.negative:
+;	mov	rax, -1
 
 .return:
 	ret
