@@ -27,7 +27,6 @@ void static compare(char *str1, char *str2)
 
 }
 
-
 void strcmp_test(void)
 {
 	compare("", "");

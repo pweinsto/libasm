@@ -4,6 +4,7 @@ void	read_test();
 void 	write_test();
 void	strlen_test();
 void	strcmp_test();
+void	strcpy_test();
 
 ssize_t	ft_read(int, void *, size_t);
 
@@ -21,7 +22,8 @@ int	main(void)
 	//read_test();
 	//write_test();
 	//strlen_test();
-	strcmp_test();
+	//strcmp_test();
+	strcpy_test();
 	
 	/*char	buf[64];
 	int fd = open("read.txt", O_RDONLY);
