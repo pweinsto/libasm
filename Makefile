@@ -28,7 +28,8 @@ CSOURCES	=	main.c \
 				write_test.c \
 				strlen_test.c \
 				strcmp_test.c \
-				strcpy_test.c
+				strcpy_test.c \
+				strdup_test.c
 
 # Object files derived from the C source files
 COBJECTS    =   $(CSOURCES:.c=.o)
@@ -38,7 +39,7 @@ CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
 
 # Default target to build the library
-all:	$(NAME)
+all:	$(NAME) $(TEST)
 
 # Pattern rule to compile .s files to .o files
 %.o: %.s
@@ -52,8 +53,8 @@ all:	$(NAME)
 $(NAME):	$(SOBJECTS)
 	$(AR) $(ARFLAGS) $(NAME) $(SOBJECTS)
 
-# Rule to build and run the test
-test:	all $(COBJECTS)
+# Rule to build the test executable only if necessary
+$(TEST):	$(COBJECTS) $(NAME)
 	$(CC) $(COBJECTS) $(NAME) -o $(TEST)
 
 # Rule to clean up object files

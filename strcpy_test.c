@@ -33,6 +33,13 @@ void static compare(char *dest_strcpy, char *dest_ft_strcpy, char *src)
 
 void strcpy_test(void)
 {
+	printf("   __ _           _                        \n"
+       "  / _| |_     ___| |_ _ __ ___ _ __  _   _ \n"
+       " | |_| __|   / __| __| '__/ __| '_ \\| | | |\n"
+       " |  _| |_    \\__ \\ |_| | | (__| |_) | |_| |\n"
+       " |_|  \\__|___|___/\\__|_|  \\___| .__/ \\__, |\n"
+       "        |_____|               |_|    |___/ \n");
+
 	char	*src = "source string";
 
 	char	stack_dest_strcpy[strlen(src) + 1];

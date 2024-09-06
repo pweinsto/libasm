@@ -42,8 +42,14 @@ void static compare(ssize_t fd_write, int fd_ft_write, const void *buf, size_t n
 
 void write_test(void)
 {
+	printf("   __ _                   _ _       \n"
+       "  / _| |_  __      ___ __(_) |_ ___ \n"
+       " | |_| __| \\ \\ /\\ / / '__| | __/ _ \\ \n"
+       " |  _| |_   \\ V  V /| |  | | ||  __/ \n"
+       " |_|  \\__|___\\_/\\_/ |_|  |_|\\__\\___| \n"
+       "        |_____|                      \n");
+
 	char *buf = "Hello world\n";
-	
 	
 	compare(1, 1, buf, 1);
 	compare(1, 1, buf, 0);

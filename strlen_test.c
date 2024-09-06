@@ -30,6 +30,13 @@ void static compare(char *str)
 
 void strlen_test(void)
 {
+	printf("   __ _           _        _            \n"
+       "  / _| |_     ___| |_ _ __| | ___ _ __  \n"
+       " | |_| __|   / __| __| '__| |/ _ \\ '_ \\ \n"
+       " |  _| |_    \\__ \\ |_| |  | |  __/ | | |\n"
+       " |_|  \\__|___|___/\\__|_|  |_|\\___|_| |_|\n"
+       "        |_____|                         \n");
+
 	char	*heapString;
 	char *stackString = "stack string";
 	
@@ -39,5 +46,4 @@ void strlen_test(void)
 
 	compare(stackString);
 	compare(heapString);
-	
 }

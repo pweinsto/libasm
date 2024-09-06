@@ -60,10 +60,16 @@ void	static compare(ssize_t fd, size_t buf_size, size_t count)
 
 void read_test(void)
 {
+	printf("   __ _                          _ \n"
+       "  / _| |_     _ __ ___  __ _  __| |\n"
+       " | |_| __|   | '__/ _ \\/ _` |/ _` |\n"
+       " |  _| |_    | | |  __/ (_| | (_| |\n"
+       " |_|  \\__|___|_|  \\___|\\__,_|\\__,_|\n"
+       "        |_____|                    \n");
+
 	ssize_t	fd_read;
 	ssize_t	fd_write;
 	ssize_t	fd_empty;
-
 
 	fd_read = open("read.txt", O_RDONLY);
 	if (fd_read < 0)
