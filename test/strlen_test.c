@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void static compare(char *str)
 {
@@ -38,12 +38,15 @@ void strlen_test(void)
        "        |_____|                         \n");
 
 	char	*heapString;
-	char *stackString = "stack string";
-	
+	char	*stackString = "stack string";
+	char	*emptyString = "";
+	char	*longString = LONGSTRING;
 
-	heapString = (char *)malloc(14 * sizeof(char));
+	heapString = (char *)malloc(12 * sizeof(char));
 	strcpy(heapString, "heap string");
 
 	compare(stackString);
+	compare(emptyString);
+	compare(longString);
 	compare(heapString);
 }

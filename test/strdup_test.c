@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void static compare(char *src)
 {
@@ -43,5 +43,6 @@ void strdup_test(void)
 	char	*src = "source string";
 
 	compare(src);
-	compare(src);
+	compare(EMPTYSTRING);
+	compare(LONGSTRING);
 }

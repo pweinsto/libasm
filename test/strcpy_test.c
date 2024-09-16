@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void static compare(char *dest_strcpy, char *dest_ft_strcpy, char *src)
 {
@@ -48,8 +48,16 @@ void strcpy_test(void)
 	char	*heap_dest_strcpy = calloc(strlen(src) + 1, sizeof(char));
 	char	*heap_dest_ft_strcpy = calloc(strlen(src) + 1, sizeof(char));
 
+	char	empty_dest_strcpy[strlen(EMPTYSTRING) + 1];
+	char	empty_dest_ft_strcpy[strlen(EMPTYSTRING) + 1];
+	
+	char	long_dest_strcpy[strlen(LONGSTRING) + 1];
+	char	long_dest_ft_strcpy[strlen(LONGSTRING) + 1];
+
 	compare(stack_dest_strcpy, stack_dest_ft_strcpy, src);
 	compare(heap_dest_strcpy, heap_dest_ft_strcpy, src);
+	compare(empty_dest_strcpy, empty_dest_ft_strcpy, EMPTYSTRING);
+	compare(long_dest_strcpy, long_dest_ft_strcpy, LONGSTRING);
 
 	free(heap_dest_strcpy);
 	free(heap_dest_ft_strcpy);

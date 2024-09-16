@@ -1,14 +1,13 @@
 NAME		=	libasm.a
-TEST		=	test
+TEST		=	tester
 
 # Source files for assembly
-SSOURCES	=	HelloWorld.s \
-				ft_write.s \
-				ft_read.s \
-				ft_strlen.s \
-				ft_strcpy.s \
-				ft_strcmp.s \
-				ft_strdup.s
+SSOURCES	=	src/ft_write.s \
+				src/ft_read.s \
+				src/ft_strlen.s \
+				src/ft_strcpy.s \
+				src/ft_strcmp.s \
+				src/ft_strdup.s
 
 # Object files derived from the assembly source files
 SOBJECTS	=	$(SSOURCES:.s=.o)
@@ -22,14 +21,14 @@ AR			=	ar
 ARFLAGS		=	rcs
 
 # Source files for C
-CSOURCES	=	main.c \
-				error.c \
-				read_test.c \
-				write_test.c \
-				strlen_test.c \
-				strcmp_test.c \
-				strcpy_test.c \
-				strdup_test.c
+CSOURCES	=	test/main.c \
+				test/cerror.c \
+				test/read_test.c \
+				test/write_test.c \
+				test/strlen_test.c \
+				test/strcmp_test.c \
+				test/strcpy_test.c \
+				test/strdup_test.c
 
 # Object files derived from the C source files
 COBJECTS    =   $(CSOURCES:.c=.o)
@@ -37,6 +36,9 @@ COBJECTS    =   $(CSOURCES:.c=.o)
 # Compiler and compiler flags
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
+
+# Linker flags
+LDFLAGS		=	-L. -lasm
 
 # Default target to build the library
 all:	$(NAME) $(TEST)
@@ -55,7 +57,7 @@ $(NAME):	$(SOBJECTS)
 
 # Rule to build the test executable only if necessary
 $(TEST):	$(COBJECTS) $(NAME)
-	$(CC) $(COBJECTS) $(NAME) -o $(TEST)
+	$(CC) $(COBJECTS) $(NAME) $(LDFLAGS) -o $(TEST)
 
 # Rule to clean up object files
 clean:

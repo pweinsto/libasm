@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void	error(void)
+void	cerror(void)
 {
 	fprintf(stderr, "%s\n", strerror(errno));
 	exit(EXIT_FAILURE);

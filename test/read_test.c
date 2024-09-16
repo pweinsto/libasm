@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void	static compare(ssize_t fd, size_t buf_size, size_t count)
 {
@@ -16,10 +16,10 @@ void	static compare(ssize_t fd, size_t buf_size, size_t count)
 	buf_ft_read = 0;
 	buf_read = calloc(buf_size, sizeof(char));
 	if (buf_read <= 0)
-		error();
+		cerror();
 	buf_ft_read = calloc(buf_size, sizeof(char));
 	if (buf_ft_read <= 0)
-		error();
+		cerror();
 	
 	errno = 0;
 	lseek(fd, SEEK_SET, 0);
@@ -71,15 +71,15 @@ void read_test(void)
 	ssize_t	fd_write;
 	ssize_t	fd_empty;
 
-	fd_read = open("read.txt", O_RDONLY);
+	fd_read = open("txt/read.txt", O_RDONLY);
 	if (fd_read < 0)
-		error();
-	fd_write = open("read.txt", O_WRONLY);
+		cerror();
+	fd_write = open("txt/read.txt", O_WRONLY);
 	if (fd_write < 0)
-		error();
-	fd_empty = open("read.txt", O_RDONLY);
+		cerror();
+	fd_empty = open("txt/empty.txt", O_RDONLY);
 	if (fd_read < 0)
-		error();
+		cerror();
 	
 	compare(fd_read, 42, 42);
 	compare(fd_read, 0, 0);
@@ -89,6 +89,7 @@ void read_test(void)
 	compare(fd_write, 42, 42);
 	compare(-1, 42, 42);
 	compare(fd_empty, 42, 42);
+	compare(STDIN_FILENO, 42, 42);
 
 	close(fd_read);
 	close(fd_write);

@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void static compare(char *str1, char *str2)
 {

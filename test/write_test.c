@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../inc/test.h"
 
 void static compare(ssize_t fd_write, int fd_ft_write, const void *buf, size_t nbyte)
 {
@@ -25,7 +25,7 @@ void static compare(ssize_t fd_write, int fd_ft_write, const void *buf, size_t n
 	if (ret_write != ret_ft_write)
 		color_ret = RED;
 	if (errno_write != errno_ft_write)
-		color_ret = RED;
+		color_errno = RED;
 	
 	printf(BOLD);
 	printf("%-25s%-20.10s%-10s"RESET"\n", "file descriptor", "buffer", "count");
@@ -50,12 +50,20 @@ void write_test(void)
        "        |_____|                      \n");
 
 	char *buf = "Hello world\n";
+	ssize_t	fd_write;
 	
-	compare(1, 1, buf, 1);
-	compare(1, 1, buf, 0);
-	compare(1, 1, buf, 42);
+	fd_write = open("txt/write.txt", O_WRONLY);
+	if (fd_write < 0)
+		cerror();
+	
+	compare(STDOUT_FILENO, STDOUT_FILENO, buf, 1);
+	compare(STDOUT_FILENO, STDOUT_FILENO, buf, 0);
+	compare(STDOUT_FILENO, STDOUT_FILENO, buf, 42);
+	compare(STDOUT_FILENO, STDOUT_FILENO, NULL, 13);
 
-	compare(1, 1, NULL, 13);
+	compare(fd_write, fd_write, buf, 12);
 
 	compare(4, 4, buf, 13);
+
+	close(fd_write);
 }
