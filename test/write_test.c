@@ -29,12 +29,12 @@ void static compare(ssize_t fd_write, int fd_ft_write, const void *buf, size_t n
 	
 	printf(BOLD);
 	printf("%-25s%-20.10s%-10s"RESET"\n", "file descriptor", "buffer", "count");
-	printf("%-25zd%-20.10s%-10zu\n", fd_write, buf, nbyte);
+	printf("%-25zd%-20.20s%-10zu\n", fd_write, buf, nbyte);
 	printf("-------------------------------------------------------------\n");
 	printf(BOLD);
 	printf("%-25s%-20s%-10s%-10s"RESET"\n", "function", "return", "errno", "buffer");
-	printf("%-25s%s%-20zd%-10d%-10.*s"RESET"\n", "write", GREEN, ret_write, errno_write, 1, buf);
-	printf("%-25s%s%-20zd%s%-10d%s%-10.*s"RESET"\n", "ft_write", color_ret, ret_ft_write, color_errno, errno_ft_write, color_buf, 1, buf);
+	printf("%-25s%s%-20zd%-10d%-10.*s"RESET"\n", "write", GREEN, ret_write, errno_write, (int)nbyte, buf);
+	printf("%-25s%s%-20zd%s%-10d%s%-10.*s"RESET"\n", "ft_write", color_ret, ret_ft_write, color_errno, errno_ft_write, color_buf, (int)nbyte, buf);
 	printf("\n\n");
 
 }
@@ -49,7 +49,7 @@ void write_test(void)
        " |_|  \\__|___\\_/\\_/ |_|  |_|\\__\\___| \n"
        "        |_____|                      \n");
 
-	char *buf = "Hello world\n";
+	char *buf = "Hello world";
 	ssize_t	fd_write;
 	
 	fd_write = open("txt/write.txt", O_WRONLY);
