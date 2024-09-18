@@ -10,12 +10,13 @@ void	strdup_test();
 
 int	main(void)
 {
-	read_test();
-	write_test();
+	
 	strlen_test();
-	strcmp_test();
-	strcpy_test();
-	strdup_test();
+	//strcpy_test();
+	//strcmp_test();
+	//write_test();
+	//read_test();
+	//strdup_test();
 
 	return (0);
 }

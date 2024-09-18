@@ -14,8 +14,6 @@ loop:
 	inc rsi
 	sub	rax, rdx
 	jz	loop
-	;js	.negative
-	;mov	rax, 1
 	ret
 
 .testdl:
@@ -26,9 +24,6 @@ loop:
 	sub	rax, rdx
 	jz	loop
 	ret
-
-;.negative:
-;	mov	rax, -1
 
 .return:
 	ret

@@ -55,7 +55,7 @@ all:	$(NAME) $(TEST)
 $(NAME):	$(SOBJECTS)
 	$(AR) $(ARFLAGS) $(NAME) $(SOBJECTS)
 
-# Rule to build the test executable only if necessary
+# Rule to build the test executable
 $(TEST):	$(COBJECTS) $(NAME)
 	$(CC) $(COBJECTS) $(NAME) $(LDFLAGS) -o $(TEST)
 

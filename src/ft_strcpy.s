@@ -11,5 +11,4 @@ loop:
 	inc		rdi
 	test	dl, dl
 	jnz		loop
-
 	ret
